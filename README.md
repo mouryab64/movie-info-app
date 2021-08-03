@@ -17,7 +17,7 @@ Updated: August 3, 2021
 
 ![App Home Demo -Stickies](https://i.ibb.co/GJPshFX/Movie-Details.png)
 
-##Setting up your app
+## Setting up your app
 
 
 

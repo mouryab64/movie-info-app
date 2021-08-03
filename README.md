@@ -1,19 +1,19 @@
 # Building A Slack On Slack Movie Info App 
 
 Published: August 1, 2021<br>
-Updated: August 2, 2021
+Updated: August 3, 2021
 
 
-Welcome to Movie Info! Click on the button to pick a Movie
+**Welcome to Movie Info! Click on the button to pick a Movie**
 
 
 ![App Home Demo -Stickies](https://i.ibb.co/Dk2GPbZ/Screen-Shot-2021-08-02-at-10-16-04-AM.png)
 
-Select a movie from the List and Submit
+**Select a movie from the List and Submit**
 
 ![App Home Demo -Stickies](https://i.ibb.co/zh5bK8k/Select-Movie.png)
 
-Receive a DM from the app, with the movie info you requested
+**Receive a DM from the app, with the movie info you requested**
 
 ![App Home Demo -Stickies](https://i.ibb.co/GJPshFX/Movie-Details.png)
 

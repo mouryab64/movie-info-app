@@ -1,0 +1,16 @@
+{
+  "name": "movie-info-app",
+  "version": "1.0.0",
+  "description": "Building A Slack On Slack Movie Info App",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Mourya",
+  "license": "ISC",
+  "dependencies": {
+    "@slack/bolt": "^3.5.0",
+    "axios": "^0.21.1",
+    "dotenv": "^10.0.0"
+  }
+}

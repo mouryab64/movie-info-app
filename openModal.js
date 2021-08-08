@@ -13,73 +13,25 @@ const openModal = () => {
       text: "Submit",
     },
     blocks: [
-      // Drop-down menu
-                  {
-                    type: "input",
-                    block_id: "movie",
-                    label: {
-                      type: "plain_text",
-                      text: "Select a movie:",
-                    },
-                    element: {
-                      type: "static_select",
-                      action_id: "name",
-                      // Different Movie Options with value being the movie Id
-                      options: [
-                                  {
-                                    text: {
-                                      type: "plain_text",
-                                      text: "Dilwale Dulhania Le Jayenge",
-                                    },
-                                    value: "19404",
-                                  },
-                                  {
-                                    text: {
-                                      type: "plain_text",
-                                      text: "The Shawshank Redemption",
-                                    },
-                                    value: "278",
-                                  },
-                                  {
-                                    text: {
-                                      type: "plain_text",
-                                      text: "The Godfather",
-                                    },
-                                    value: "238",
-                                  },
-                                  {
-                                    text: {
-                                      type: "plain_text",
-                                      text: "Schindler's List",
-                                    },
-                                    value: "424",
-                                  },
-{
-                                    text: {
-                                      type: "plain_text",
-                                      text: "The Godfather: Part II",
-                                    },
-                                    value: "240",
-                                  },
-{
-                                    text: {
-                                      type: "plain_text",
-                                      text: "The Green Mile",
-                                    },
-                                    value: "497",
-                                  },
-{
-                                    text: {
-                                      type: "plain_text",
-                                      text: "12 Angry Men",
-                                    },
-                                    value: "389",
-                                  }
-                                ],
-                      },
-                    },
-                ],
-              };
+      {
+        type: "section",
+        block_id: "movie",
+        text: {
+          type: "plain_text",
+          text: "Select a movie:",
+        },
+        accessory: {
+          action_id: "movie_name",
+          type: "external_select",
+          placeholder: {
+            type: "plain_text",
+            text: "Type movie name",
+          },
+          min_query_length: 3,
+        },
+      },
+    ],
+  };
 
   return modal;
 };

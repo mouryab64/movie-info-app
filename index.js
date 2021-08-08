@@ -11,19 +11,20 @@
 
  */
 
-require('dotenv').config();
+require("dotenv").config();
+const axios = require("axios").default;
 const { App } = require("@slack/bolt");
 const appHome = require("./appHome");
+const getMovieList = require("./getMovieList");
 const sendMovieDetails = require("./sendMovieDetails");
 const openModal = require("./openModal");
 // Require the Node Slack SDK package (github.com/slackapi/node-slack-sdk)
 const { WebClient, LogLevel } = require("@slack/web-api");
 
-
 // Initializes your Bolt app with your bot token and signing secret
 const app = new App({
   token: process.env.SLACK_BOT_TOKEN,
-  signingSecret: process.env.SLACK_SIGNING_SECRET
+  signingSecret: process.env.SLACK_SIGNING_SECRET,
 });
 
 app.event("app_home_opened", async ({ event, context, payload }) => {
@@ -60,14 +61,25 @@ app.action("select_movie", async ({ body, context, ack }) => {
   }
 });
 
+app.options({ action_id: "movie_name" }, async ({ options, ack, body }) => {
+  queryText = body.value;
+  let movieList = await getMovieList.getMovieList(queryText);
+  ack({
+    options: movieList,
+  });
+});
+
+app.action("movie_name", ({ ack }) => {
+  ack();
+});
 
 // Receive view_submissions for Movie Select
 app.view("movie_select_modal_view", async ({ ack, body, context, view }) => {
   ack();
   const data = {
-    movieId: view.state.values.movie.name.selected_option.value,
-    user_id: body.user.id
-  }
+    movieId: view.state.values.movie.movie_name.selected_option.value,
+    user_id: body.user.id,
+  };
   const MovieDetails = await sendMovieDetails.sendMovieDetails(data);
   const homeView = await appHome.createHome(body.user.id);
 
